@@ -1,0 +1,686 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Mirror of Strings.zh-Hant.xaml. Same keys, same {0} placeholders in the same meaning —
+         StringsParityTests fails the build if the two drift apart.
+
+         Field labels here are deliberately terse. They sit in a shared-width column that sizes
+         itself to the longest one, so a wordy label pushes every input on the page to the right.
+         Prefer the noun ("Phím tắt", "Dịch vụ") over the sentence — Vietnamese runs noticeably
+         longer than the Chinese these were measured against, so the short form matters more here. -->
+
+    <!-- ── Shared ── -->
+    <sys:String x:Key="S.Common.Reset">Đặt lại</sys:String>
+    <sys:String x:Key="S.Common.Close">Đóng</sys:String>
+    <sys:String x:Key="S.Common.Cancel">Hủy</sys:String>
+    <sys:String x:Key="S.Common.Save">Lưu</sys:String>
+    <sys:String x:Key="S.Common.Configure">Thiết lập</sys:String>
+    <sys:String x:Key="S.Common.ApiKey">Khóa API</sys:String>
+    <!-- The search box in a language picker. Typing narrows the list and never changes the
+         selection on its own — the user still picks. -->
+    <sys:String x:Key="S.Common.SearchLanguage">Tìm ngôn ngữ</sys:String>
+    <sys:String x:Key="S.Common.SearchNoMatch">Không có ngôn ngữ nào khớp</sys:String>
+
+    <!-- ── Shell window ── -->
+    <sys:String x:Key="S.Shell.About">Giới thiệu</sys:String>
+    <sys:String x:Key="S.Shell.QuickTools">Công cụ nhanh</sys:String>
+    <sys:String x:Key="S.Shell.CaptureTranslate">Chụp màn hình</sys:String>
+    <sys:String x:Key="S.Shell.QuickLookup">Tra nhanh</sys:String>
+    <sys:String x:Key="S.Shell.TextTranslate">Văn bản</sys:String>
+    <sys:String x:Key="S.Shell.RealtimeTranslate">Thời gian thực</sys:String>
+    <sys:String x:Key="S.Shell.Settings">Cài đặt</sys:String>
+    <sys:String x:Key="S.Shell.HideSidebar">Ẩn thanh bên</sys:String>
+    <sys:String x:Key="S.Shell.ShowSidebar">Hiện thanh bên</sys:String>
+    <sys:String x:Key="S.Shell.Pin">Ghim cửa sổ lên trên các cửa sổ khác</sys:String>
+    <sys:String x:Key="S.Shell.Unpin">Bỏ ghim</sys:String>
+    <sys:String x:Key="S.Shell.CaptureBlockedByRealtimeFraming">Đang khoanh khối cho dịch thời gian thực — hãy bấm "Bắt đầu" trước khi chụp màn hình</sys:String>
+    <sys:String x:Key="S.Shell.QuickLookupBlockedByRealtime">Dịch thời gian thực đang chạy — hãy dừng lại trước khi dùng tra nhanh</sys:String>
+    <sys:String x:Key="S.Shell.UpdateAvailable">Cập nhật lên v{0}</sys:String>
+
+    <!-- ── Tray menu ── -->
+    <sys:String x:Key="S.Tray.OpenWindow">Mở cửa sổ dịch</sys:String>
+    <sys:String x:Key="S.Tray.RealtimeWindow">Cửa sổ thời gian thực</sys:String>
+    <sys:String x:Key="S.Tray.Settings">Cài đặt</sys:String>
+    <sys:String x:Key="S.Tray.Exit">Thoát</sys:String>
+
+    <!-- ── About ── -->
+    <sys:String x:Key="S.About.Website">Truy cập trang web</sys:String>
+    <sys:String x:Key="S.About.Star">Gắn sao trên GitHub</sys:String>
+    <sys:String x:Key="S.About.Sponsor">Ủng hộ</sys:String>
+    <sys:String x:Key="S.About.SponsorTip">Ủng hộ qua Buy Me a Coffee</sys:String>
+    <sys:String x:Key="S.About.Version">Phiên bản {0}</sys:String>
+    <sys:String x:Key="S.About.OpenSource">Miễn phí và mã nguồn mở.</sys:String>
+
+    <!-- ── Toast ── -->
+    <sys:String x:Key="S.Toast.CopyMessage">Sao chép thông báo</sys:String>
+    <sys:String x:Key="S.Toast.Copied">Đã sao chép vào bộ nhớ tạm</sys:String>
+    <sys:String x:Key="S.Toast.CopyFailed">Sao chép không thành công. Vui lòng thử lại sau.</sys:String>
+
+    <!-- ── Update ── -->
+    <sys:String x:Key="S.Update.WindowTitle">Đã có bản cập nhật</sys:String>
+    <sys:String x:Key="S.Update.Heading">Đã có bản cập nhật</sys:String>
+    <sys:String x:Key="S.Update.Explanation">"Cập nhật ngay" sẽ tải và áp dụng bản cập nhật, sau đó khởi động lại ứng dụng.</sys:String>
+    <sys:String x:Key="S.Update.NotesBefore" xml:space="preserve">Muốn biết có gì mới? </sys:String>
+    <sys:String x:Key="S.Update.NotesLink">Xem ghi chú phát hành</sys:String>
+    <sys:String x:Key="S.Update.Later">Để sau</sys:String>
+    <sys:String x:Key="S.Update.Now">Cập nhật ngay</sys:String>
+    <sys:String x:Key="S.Update.Skip">Bỏ qua phiên bản này và không nhắc lại</sys:String>
+    <sys:String x:Key="S.Update.DownloadingDelta">Đang tải bản cập nhật {0} · {1}</sys:String>
+    <sys:String x:Key="S.Update.DownloadingFull">Đang tải bộ cài đầy đủ {0} · {1}</sys:String>
+    <sys:String x:Key="S.Update.Patching">Đang áp dụng bản cập nhật...</sys:String>
+    <sys:String x:Key="S.Update.Preparing">Đang chuẩn bị cài đặt...</sys:String>
+    <sys:String x:Key="S.Update.Applying">Đang cài đặt...</sys:String>
+    <sys:String x:Key="S.Update.FellBackToFull">Không áp dụng được tệp cập nhật — chuyển sang bản cập nhật đầy đủ</sys:String>
+    <sys:String x:Key="S.Update.SlowBefore" xml:space="preserve">Tải quá chậm? </sys:String>
+    <sys:String x:Key="S.Update.SlowLink">Tải thủ công từ GitHub</sys:String>
+    <sys:String x:Key="S.Update.Cancel">Hủy cập nhật</sys:String>
+    <sys:String x:Key="S.Update.Cancelling">Đang hủy...</sys:String>
+    <sys:String x:Key="S.Update.Retry">Thử lại</sys:String>
+    <sys:String x:Key="S.Update.Failed">Không tải được bản cập nhật: {0}</sys:String>
+    <sys:String x:Key="S.Update.CloseBlocked">Quá trình cập nhật đang chạy — ứng dụng sẽ tự khởi động lại khi xong</sys:String>
+
+    <!-- ── Service errors ── -->
+    <sys:String x:Key="S.Error.OpenAiHttp">API tương thích OpenAI trả về {0}: {1}</sys:String>
+    <sys:String x:Key="S.Error.OpenAiUnparsable">Không đọc được phản hồi từ API tương thích OpenAI.</sys:String>
+    <sys:String x:Key="S.Error.OpenAiNoTranslation">API tương thích OpenAI không trả về bản dịch nào.</sys:String>
+    <sys:String x:Key="S.Error.OpenAiTimeout">API tương thích OpenAI không phản hồi trong {0} giây. Bạn có thể đổi thời gian chờ trong cài đặt dịch vụ dịch.</sys:String>
+    <sys:String x:Key="S.Error.OpenAiBadUrl">Địa chỉ API tương thích OpenAI phải là một URL HTTP hoặc HTTPS hợp lệ.</sys:String>
+    <sys:String x:Key="S.Error.OpenAiNoModel">Chưa đặt tên mô hình. Hãy nhập mô hình muốn dùng trong cài đặt dịch vụ dịch.</sys:String>
+    <sys:String x:Key="S.Error.UnknownError">Lỗi không xác định</sys:String>
+    <sys:String x:Key="S.Error.NoErrorContent">Không có chi tiết lỗi</sys:String>
+    <sys:String x:Key="S.Error.OcrUnsupportedLanguage">OCR hiện chỉ hỗ trợ AUTO, EN, ZH, ZH-HANT, JA và KO; "{0}" chưa được hỗ trợ.</sys:String>
+    <sys:String x:Key="S.Error.OcrSwapTimeout">Hết thời gian chờ các tác vụ nhận dạng khác hoàn tất để chuyển mô hình OCR.</sys:String>
+    <sys:String x:Key="S.Error.OcrImageConvert">Không chuyển được ảnh sang định dạng mà OCR ONNX đọc được.</sys:String>
+    <sys:String x:Key="S.Error.OcrModelMissing">Không tìm thấy tệp mô hình OCR: {0}</sys:String>
+    <sys:String x:Key="S.Error.NotTranslated">Chưa dịch</sys:String>
+
+    <!-- ── Text translation page ── -->
+    <sys:String x:Key="S.Translation.Title">Dịch văn bản</sys:String>
+    <sys:String x:Key="S.Translation.Subtitle">Nhập hoặc dán văn bản để dịch. Kết quả chụp màn hình cũng hiện ở đây.</sys:String>
+    <sys:String x:Key="S.Translation.SwapTip">Đổi chỗ ngôn ngữ và văn bản</sys:String>
+    <sys:String x:Key="S.Translation.ClearSource">Xóa văn bản nguồn</sys:String>
+    <sys:String x:Key="S.Translation.SpeakSource">Đọc văn bản nguồn</sys:String>
+    <sys:String x:Key="S.Translation.SpeakSourceOpenAi">Với dịch vụ OpenAI, hãy chọn ngôn ngữ nguồn để đọc văn bản nguồn.</sys:String>
+    <sys:String x:Key="S.Translation.SpeakSourceUnknown">Chưa biết văn bản nguồn thuộc ngôn ngữ nào. Có thể đọc sau khi có bản dịch.</sys:String>
+    <!-- The note at the foot of the page and the greyed speaker's tooltip are the same sentence:
+         the note is what is read, the tooltip is for whoever hovers the button instead. -->
+    <sys:String x:Key="S.Translation.Source">Bản gốc</sys:String>
+    <sys:String x:Key="S.Translation.SpeakResult">Đọc bản dịch</sys:String>
+    <sys:String x:Key="S.Translation.Result">Bản dịch</sys:String>
+    <sys:String x:Key="S.Translation.Retry">↻ Thử lại</sys:String>
+    <sys:String x:Key="S.Translation.MissingApiKey">Chưa có khóa API — hãy nhập trong Cài đặt trước</sys:String>
+    <sys:String x:Key="S.Translation.ProviderUnavailable">{0} hiện không dùng được. Hãy thử một nguồn dịch khác.
+Dịch không thành công: {1}</sys:String>
+    <sys:String x:Key="S.Translation.Translating">Đang dịch...</sys:String>
+    <sys:String x:Key="S.Translation.SpeakFailed">Không đọc được: {0}</sys:String>
+
+    <!-- ── In-place translation ── Only ever seen on the hint card, so each line stays to one: it sits
+         over the window the reader is working in. -->
+    <sys:String x:Key="S.QuickTranslate.Replaced">Đã dịch và dán.</sys:String>
+    <sys:String x:Key="S.QuickTranslate.EmptyResult">Bản dịch trả về rỗng; văn bản của bạn được giữ nguyên.</sys:String>
+    <sys:String x:Key="S.QuickTranslate.FocusMoved">Bạn đã chuyển cửa sổ nên không dán được bản dịch.</sys:String>
+    <sys:String x:Key="S.QuickTranslate.ClipboardBusy">Bộ nhớ tạm không dùng được nên chưa dán gì cả.</sys:String>
+
+    <!-- ── Rich dictionary ── -->
+    <sys:String x:Key="S.Dictionary.Alternatives">Các cách dịch khác</sys:String>
+    <sys:String x:Key="S.Dictionary.NoResult">Không tìm thấy mục từ điển nào cho từ này.</sys:String>
+    <sys:String x:Key="S.Dictionary.Unavailable">Không tìm thấy mục từ điển nào cho từ này.</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Adjective">Tính từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Adverb">Trạng từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Article">Mạo từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Conjunction">Liên từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Determiner">Từ hạn định</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Interjection">Thán từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.ModalVerb">Động từ khuyết thiếu</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Noun">Danh từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Other">Khác</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Phrase">Cụm từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Preposition">Giới từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Pronoun">Đại từ</sys:String>
+    <sys:String x:Key="S.Dictionary.PartOfSpeech.Verb">Động từ</sys:String>
+
+    <!-- ── Quick lookup popup ── -->
+    <sys:String x:Key="S.QuickLookup.Placeholder">Nhập văn bản để dịch...</sys:String>
+    <sys:String x:Key="S.QuickLookup.Settings">Cài đặt tra nhanh</sys:String>
+    <sys:String x:Key="S.QuickLookup.BackToResult">Về lại bản dịch</sys:String>
+    <sys:String x:Key="S.QuickLookup.Pin">Ghim để cửa sổ không tự đóng</sys:String>
+    <sys:String x:Key="S.QuickLookup.Unpin">Bỏ ghim</sys:String>
+    <sys:String x:Key="S.QuickLookup.Copy">Sao chép</sys:String>
+    <sys:String x:Key="S.QuickLookup.Copied">Đã sao chép</sys:String>
+    <sys:String x:Key="S.QuickLookup.SpeakSource">Đọc bản gốc</sys:String>
+    <sys:String x:Key="S.QuickLookup.SpeakSourceTip">Đọc to bản gốc</sys:String>
+    <!-- Automatic is not switched off here the way it is on the text translation page: once the
+         translation is back the engine has said which language the original was in, so the only
+         gap is before the first result. -->
+    <sys:String x:Key="S.QuickLookup.SpeakSourceOpenAi">Với dịch vụ OpenAI, hãy chọn ngôn ngữ nguồn để đọc bản gốc.</sys:String>
+    <sys:String x:Key="S.QuickLookup.SpeakSourceUnknown">Chưa biết bản gốc thuộc ngôn ngữ nào. Có thể đọc sau khi có bản dịch.</sys:String>
+    <sys:String x:Key="S.QuickLookup.Provider">Dịch vụ dịch</sys:String>
+    <sys:String x:Key="S.QuickLookup.ProviderHint">Dùng chung với dịch màn hình và dịch văn bản</sys:String>
+    <sys:String x:Key="S.QuickLookup.AutoCopy">Tự động sao chép kết quả dịch</sys:String>
+    <sys:String x:Key="S.QuickLookup.AutoCopyHint">Tự động sao chép kết quả vào bộ nhớ tạm khi dịch xong</sys:String>
+    <sys:String x:Key="S.QuickLookup.Bilingual">Dịch hai chiều</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualHint">Nhận diện nội dung bạn nhập và dịch qua lại giữa hai ngôn ngữ bạn chọn</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualFallback">Mọi ngôn ngữ khác được nhận diện sẽ dịch sang ngôn ngữ bên trái, {0}</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualFirst">Ngôn ngữ thứ nhất</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualSecond">Ngôn ngữ thứ hai</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualStatusIdle">Hai chiều: đang nhận diện</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualStatusPair">Hai chiều: {0} → {1}</sys:String>
+    <sys:String x:Key="S.QuickLookup.BilingualStatusTip">Chiều dịch được chọn tự động, giữa {0} và {1}. Bấm để đổi ngôn ngữ.</sys:String>
+    <sys:String x:Key="S.QuickLookup.Collapse">Thu gọn</sys:String>
+    <sys:String x:Key="S.QuickLookup.Expand">Mở rộng</sys:String>
+    <sys:String x:Key="S.QuickLookup.TranslationCopied">Đã sao chép vào bộ nhớ tạm</sys:String>
+    <sys:String x:Key="S.QuickLookup.OpenFullSettings">Tất cả cài đặt</sys:String>
+    <sys:String x:Key="S.QuickLookup.SettingsHint">Bấm {0} để mở. Cửa sổ sẽ đóng khi bạn chuyển sang cửa sổ khác; hãy ghim để giữ nó trên màn hình.</sys:String>
+
+    <!-- ── Capture toolbar ── -->
+    <sys:String x:Key="S.Toolbar.Translate">Dịch</sys:String>
+    <sys:String x:Key="S.Toolbar.Translating">Đang dịch...</sys:String>
+    <sys:String x:Key="S.Toolbar.Recognising">Đang đọc...</sys:String>
+    <sys:String x:Key="S.Toolbar.Retranslate">Dịch lại</sys:String>
+    <sys:String x:Key="S.Toolbar.ShowSource">Hiện bản gốc</sys:String>
+    <sys:String x:Key="S.Toolbar.ShowTranslation">Hiện bản dịch</sys:String>
+    <sys:String x:Key="S.Toolbar.CopyText">Sao chép văn bản</sys:String>
+    <sys:String x:Key="S.Toolbar.CopyTranslation">Sao chép bản dịch</sys:String>
+    <sys:String x:Key="S.Toolbar.Annotate">Ghi chú</sys:String>
+    <sys:String x:Key="S.Toolbar.AnnotateHint">Vẽ ghi chú lên vùng đã chọn</sys:String>
+    <sys:String x:Key="S.Annotate.Pen">Bút</sys:String>
+    <sys:String x:Key="S.Annotate.Highlighter">Bút dạ quang</sys:String>
+    <sys:String x:Key="S.Annotate.Line">Đường thẳng</sys:String>
+    <sys:String x:Key="S.Annotate.Rectangle">Hình chữ nhật</sys:String>
+    <sys:String x:Key="S.Annotate.Ellipse">Hình bầu dục</sys:String>
+    <sys:String x:Key="S.Annotate.Eraser">Cục tẩy</sys:String>
+    <sys:String x:Key="S.Annotate.Undo">Hoàn tác</sys:String>
+    <sys:String x:Key="S.Annotate.Redo">Làm lại</sys:String>
+    <sys:String x:Key="S.Annotate.Thickness">Độ dày</sys:String>
+    <sys:String x:Key="S.Annotate.Thin">Mảnh</sys:String>
+    <sys:String x:Key="S.Annotate.Thick">Dày</sys:String>
+    <sys:String x:Key="S.Annotate.Opacity">Độ đậm</sys:String>
+    <sys:String x:Key="S.Annotate.Faint">Nhạt</sys:String>
+    <sys:String x:Key="S.Annotate.Strong">Đậm</sys:String>
+    <sys:String x:Key="S.Annotate.Size">Kích thước</sys:String>
+    <sys:String x:Key="S.Annotate.Small">Nhỏ</sys:String>
+    <sys:String x:Key="S.Annotate.Large">Lớn</sys:String>
+    <sys:String x:Key="S.Toolbar.Screenshot">Ảnh chụp</sys:String>
+    <sys:String x:Key="S.Toolbar.OpenWindow">Cửa sổ</sys:String>
+    <sys:String x:Key="S.Toolbar.OpenWindowHint">Mở bản dịch này trong một cửa sổ</sys:String>
+    <sys:String x:Key="S.Toolbar.Swap">Đổi chỗ ngôn ngữ nguồn và ngôn ngữ đích</sys:String>
+    <sys:String x:Key="S.Toolbar.Close">Kết thúc dịch ảnh chụp</sys:String>
+    <sys:String x:Key="S.Toolbar.Direction">Chiều viết của bản gốc</sys:String>
+    <sys:String x:Key="S.Toolbar.DirectionHorizontal">Ngang</sys:String>
+    <sys:String x:Key="S.Toolbar.DirectionVertical">Dọc</sys:String>
+    <sys:String x:Key="S.Toolbar.DirectionHorizontalHint">Bản gốc viết ngang, từ trái sang phải</sys:String>
+    <sys:String x:Key="S.Toolbar.DirectionVerticalHint">Bản gốc viết dọc, từ phải sang trái (sách và truyện tranh Nhật)</sys:String>
+    <sys:String x:Key="S.Toolbar.LayoutMode">Nội dung trong vùng chọn</sys:String>
+    <sys:String x:Key="S.Toolbar.LayoutModeGeneral">Thông thường</sys:String>
+    <sys:String x:Key="S.Toolbar.LayoutModeInterface">Giao diện</sys:String>
+    <sys:String x:Key="S.Toolbar.LayoutModeGeneralHint">Sắp xếp văn bản theo trình tự đọc và gộp các dòng liền nhau khi chúng thuộc cùng một đoạn. Phù hợp với bài viết, truyện tranh, hội thoại và phần lớn ảnh chụp thông thường.</sys:String>
+    <sys:String x:Key="S.Toolbar.LayoutModeInterfaceHint">Giữ nguyên cách sắp đặt gốc và khoảng cách giữa các khối, đồng thời xét việc gộp dòng khắt khe hơn. Phù hợp với giao diện game, menu và giao diện nhiều cột.</sys:String>
+    <sys:String x:Key="S.Toolbar.Speak">Đọc</sys:String>
+    <sys:String x:Key="S.Toolbar.SpeakStopLabel">Dừng</sys:String>
+    <sys:String x:Key="S.Toolbar.SpeakHint">Đọc to văn bản nguồn đã nhận dạng</sys:String>
+    <sys:String x:Key="S.Toolbar.SpeakStop">Dừng đọc</sys:String>
+    <sys:String x:Key="S.Toolbar.SpeakAutomatic">Không đọc được khi ngôn ngữ nguồn đang là Tự động. Hãy chọn đúng ngôn ngữ trước.</sys:String>
+    <sys:String x:Key="S.Toolbar.SpeakNoText">Chưa có văn bản nhận dạng nào để đọc</sys:String>
+    <sys:String x:Key="S.Toolbar.BackupBadge">⚡Dự phòng</sys:String>
+    <sys:String x:Key="S.Toolbar.BackupTooltip">"{0}" không dịch được toàn bộ nên "{1}" đã dịch phần còn lại.
+Thực tế lần này dùng: {2}</sys:String>
+
+    <!-- ── Capture overlay ── -->
+    <sys:String x:Key="S.Capture.CancelTip">Hủy chụp</sys:String>
+    <sys:String x:Key="S.Capture.DragPrompt">Kéo chuột để chọn vùng cần dịch</sys:String>
+    <sys:String x:Key="S.Capture.PressPrefix">Bấm</sys:String>
+    <sys:String x:Key="S.Capture.CancelSuffix">để hủy</sys:String>
+    <sys:String x:Key="S.Overlay.Recognising">Đang đọc</sys:String>
+
+    <!-- ── Secret box ── -->
+    <sys:String x:Key="S.Secret.Show">Hiện</sys:String>
+    <sys:String x:Key="S.Secret.Hide">Ẩn</sys:String>
+
+    <!-- ── Tray notifications and capture balloons ── -->
+    <sys:String x:Key="S.Main.MinimizedTitle">OverTranslate vẫn đang chạy</sys:String>
+    <sys:String x:Key="S.Main.MinimizedBody">Đã thu nhỏ vào khay hệ thống. Bấm {0} để bắt đầu dịch bằng chụp màn hình.</sys:String>
+    <sys:String x:Key="S.Main.DefaultShortcutName">phím tắt của bạn</sys:String>
+    <sys:String x:Key="S.Main.RealtimeRunningTitle">Dịch thời gian thực đang chạy</sys:String>
+    <sys:String x:Key="S.Main.RealtimeRunningBody">Hãy dừng dịch thời gian thực trước khi dùng tra nhanh.</sys:String>
+    <sys:String x:Key="S.Main.MissingApiKeyTitle">Chưa có khóa API</sys:String>
+    <sys:String x:Key="S.Main.MissingApiKeyBody">Hãy nhập khóa API trong Cài đặt.</sys:String>
+    <sys:String x:Key="S.Main.RecogniseFailedTitle">Nhận dạng không thành công</sys:String>
+    <sys:String x:Key="S.Main.NoImageBody">Không còn ảnh đã chọn. Hãy chọn lại vùng.</sys:String>
+    <sys:String x:Key="S.Main.Recognising">Đang đọc</sys:String>
+    <sys:String x:Key="S.Main.NoTextTitle">Không tìm thấy văn bản</sys:String>
+    <sys:String x:Key="S.Main.NoTextBody">Không có văn bản đọc được trong vùng đã chọn.</sys:String>
+    <sys:String x:Key="S.Main.Translating">Đang dịch</sys:String>
+    <sys:String x:Key="S.Main.TranslateFailedTitle">Dịch không thành công</sys:String>
+    <sys:String x:Key="S.Main.TranslateFailedBody">Nguồn dịch hiện tại có thể tạm thời không dùng được.
+Hãy chuyển sang nguồn khác rồi thử lại.
+Chi tiết: {0}</sys:String>
+    <sys:String x:Key="S.Main.CopiedTitle">Đã sao chép</sys:String>
+    <sys:String x:Key="S.Main.CopiedBody">Vùng đã chọn được sao chép vào bộ nhớ tạm.</sys:String>
+    <sys:String x:Key="S.Main.TextCopiedBody">Văn bản đã nhận dạng được sao chép vào bộ nhớ tạm.</sys:String>
+    <sys:String x:Key="S.Main.TranslationCopiedBody">Bản dịch được sao chép vào bộ nhớ tạm.</sys:String>
+    <sys:String x:Key="S.Main.CopiedAndSavedBody">Đã sao chép vào bộ nhớ tạm và lưu tại:
+{0}</sys:String>
+    <sys:String x:Key="S.Main.CopiedSaveFailedTitle">Đã sao chép (chưa lưu)</sys:String>
+    <sys:String x:Key="S.Main.CopiedSaveFailedBody">Đã sao chép vào bộ nhớ tạm, nhưng không lưu được: {0}</sys:String>
+    <sys:String x:Key="S.Main.CopyFailedTitle">Sao chép không thành công</sys:String>
+    <sys:String x:Key="S.Main.CopyFailedBody">Không sao chép được ảnh chụp: {0}</sys:String>
+    <sys:String x:Key="S.Main.CopyTextFailedBody">Bộ nhớ tạm hiện không dùng được. Hãy thử lại sau một chút.</sys:String>
+    <sys:String x:Key="S.Main.SpeakFailedTitle">Không đọc được</sys:String>
+    <sys:String x:Key="S.Main.SpeakFailedBody">Không đọc được văn bản này: {0}</sys:String>
+
+    <!-- ── Realtime translation ── -->
+    <sys:String x:Key="S.Realtime.Title">Dịch thời gian thực</sys:String>
+    <sys:String x:Key="S.Realtime.Subtitle">Chọn các vùng trên màn hình và chúng sẽ được dịch lại mỗi khi nội dung thay đổi — dành cho video, game và mọi thứ luôn chuyển động.</sys:String>
+
+    <sys:String x:Key="S.Realtime.TranslationSettings">Dịch</sys:String>
+    <sys:String x:Key="S.Realtime.SourceLanguage">Ngôn ngữ nguồn</sys:String>
+    <sys:String x:Key="S.Realtime.SourceLanguagePrompt">Chọn ngôn ngữ nguồn</sys:String>
+    <sys:String x:Key="S.Realtime.TargetLanguage">Ngôn ngữ đích</sys:String>
+    <sys:String x:Key="S.Realtime.Provider">Dịch vụ</sys:String>
+
+    <sys:String x:Key="S.Realtime.ScreenHint">Dịch thời gian thực hiện chỉ xử lý một màn hình mỗi lần.</sys:String>
+    <sys:String x:Key="S.Realtime.BlockCount">Số lượng</sys:String>
+    <sys:String x:Key="S.Realtime.DecreaseBlocks">Bớt khối</sys:String>
+    <sys:String x:Key="S.Realtime.IncreaseBlocks">Thêm khối</sys:String>
+    <sys:String x:Key="S.Realtime.BlockCountHint">Tối đa 3 khối một lần.</sys:String>
+
+    <sys:String x:Key="S.Realtime.Appearance">Hiển thị</sys:String>
+    <sys:String x:Key="S.Realtime.Preview">Xem trước</sys:String>
+    <sys:String x:Key="S.Realtime.PreviewText">Chữ trên màn hình sẽ trông như thế này</sys:String>
+    <sys:String x:Key="S.Realtime.TextColor">Màu chữ</sys:String>
+    <sys:String x:Key="S.Realtime.TextColorHint">Đặt màu cho chữ đã dịch. Tự động sẽ giữ màu của chữ gốc trên màn hình.</sys:String>
+    <sys:String x:Key="S.Realtime.TextColorMode">Chế độ màu chữ</sys:String>
+    <sys:String x:Key="S.Realtime.ScrimColor">Màu nền</sys:String>
+    <sys:String x:Key="S.Realtime.ScrimColorHint">Đặt màu cho dải nền phía sau bản dịch. Tự động sẽ dựng lại nền từ hình ảnh xung quanh.</sys:String>
+    <sys:String x:Key="S.Realtime.ScrimColorMode">Chế độ màu nền</sys:String>
+    <sys:String x:Key="S.Realtime.ScrimOpacity">Độ đục của nền</sys:String>
+    <sys:String x:Key="S.Realtime.ScrimOpacityHint">Giá trị càng cao thì nền phía sau bản dịch càng đặc.</sys:String>
+    <sys:String x:Key="S.Realtime.ColorAuto">Tự động</sys:String>
+    <sys:String x:Key="S.Realtime.ColorFixed">Cố định</sys:String>
+    <sys:String x:Key="S.Realtime.Border">Đường viền</sys:String>
+    <sys:String x:Key="S.Realtime.BorderHint">Vẽ viền quanh bản dịch để nó nổi bật khỏi hình ảnh.</sys:String>
+    <sys:String x:Key="S.Realtime.BorderMode">Chế độ màu viền</sys:String>
+    <sys:String x:Key="S.Realtime.BorderRandom">Ngẫu nhiên</sys:String>
+    <sys:String x:Key="S.Realtime.BorderFixed">Cố định</sys:String>
+    <sys:String x:Key="S.Realtime.BorderColor">Màu viền</sys:String>
+    <sys:String x:Key="S.Realtime.ResetAppearance">Đặt lại hiển thị về mặc định</sys:String>
+    <sys:String x:Key="S.Realtime.AutoModeBestFor">Màu chữ và màu nền mà Tự động chọn không phù hợp với mọi hình ảnh: trên một số video hoặc nền rối, chữ có thể khó đọc và vùng bị xóa trông lạc lõng. Với những cảnh như vậy, hãy chuyển sang Cố định.</sys:String>
+
+    <sys:String x:Key="S.Realtime.HowItWorks">Cách hoạt động</sys:String>
+    <sys:String x:Key="S.Realtime.Step1">1. Bấm "Chọn khối" và kéo chuột lên những vùng bạn muốn dịch.</sys:String>
+    <sys:String x:Key="S.Realtime.Step2">2. Bấm "Bắt đầu" trên thanh nổi. Mỗi khối sẽ được đọc lại và cập nhật mỗi khi nội dung thay đổi.</sys:String>
+    <sys:String x:Key="S.Realtime.Step3">3. Vùng đã dịch không nhận chuột nên game và các ứng dụng khác vẫn hoạt động bình thường. Bấm "Sửa" để điều chỉnh các khối.</sys:String>
+    <sys:String x:Key="S.Realtime.Step4">4. Bấm {0} trong lúc dịch để tạm dừng và tiếp tục. Tạm dừng sẽ đưa chữ gốc trở lại màn hình.</sys:String>
+
+    <sys:String x:Key="S.Realtime.SelectBlocks">Chọn khối</sys:String>
+    <sys:String x:Key="S.Realtime.StopSession">Dừng</sys:String>
+    <sys:String x:Key="S.Realtime.ActiveHint">Đang chạy. Dùng thanh nổi trên màn hình để điều chỉnh hoặc dừng.</sys:String>
+    <sys:String x:Key="S.Realtime.NoApiKey">Chưa đặt khóa API. Hãy nhập trong Cài đặt, nếu không dịch thời gian thực sẽ không lấy được bản dịch.</sys:String>
+    <sys:String x:Key="S.Realtime.ScreenItem">Màn hình {0} · {1}×{2}</sys:String>
+    <sys:String x:Key="S.Realtime.ScreenItemPrimary">Màn hình {0} · {1}×{2} (chính)</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureInProgress">Đang có một phiên dịch ảnh chụp màn hình. Hãy kết thúc nó trước khi bắt đầu dịch thời gian thực.</sys:String>
+    <sys:String x:Key="S.Realtime.ChooseSourceFirst">Hãy chọn ngôn ngữ nguồn trước.</sys:String>
+    <sys:String x:Key="S.Realtime.NoScreens">Không tìm thấy màn hình dùng được. Hãy mở lại trang này.</sys:String>
+
+    <!-- Floating control bar -->
+    <sys:String x:Key="S.Realtime.EditHint">Kéo chuột trên màn hình để tạo những vùng bạn muốn dịch</sys:String>
+    <sys:String x:Key="S.Realtime.StartTranslating">Bắt đầu</sys:String>
+    <sys:String x:Key="S.Realtime.Running">Đang dịch</sys:String>
+    <sys:String x:Key="S.Realtime.Paused">Đã tạm dừng</sys:String>
+    <sys:String x:Key="S.Realtime.Pause">Tạm dừng dịch thời gian thực</sys:String>
+    <sys:String x:Key="S.Realtime.Resume">Tiếp tục dịch thời gian thực</sys:String>
+    <sys:String x:Key="S.Realtime.EditBlocks">Sửa khối</sys:String>
+    <sys:String x:Key="S.Realtime.CrosshairOff">Tạm ngưng khoanh khối để dùng ứng dụng bên dưới</sys:String>
+    <sys:String x:Key="S.Realtime.CrosshairOn">Tiếp tục khoanh khối</sys:String>
+    <sys:String x:Key="S.Realtime.CompareDisplay">So sánh bản gốc</sys:String>
+    <sys:String x:Key="S.Realtime.CompareDisplayOn">Bật</sys:String>
+    <sys:String x:Key="S.Realtime.CompareDisplayOff">Tắt</sys:String>
+    <sys:String x:Key="S.Realtime.CompareDisplayOnHint">So sánh bản gốc: tắt để hiển thị bản dịch đè trực tiếp lên bản gốc</sys:String>
+    <sys:String x:Key="S.Realtime.CompareDisplayOffHint">So sánh bản gốc: bật để giữ bản gốc hiển thị và đặt bản dịch trong một vùng so sánh riêng</sys:String>
+    <sys:String x:Key="S.Realtime.CompareCopyHint">Kéo để di chuyển khung so sánh. Nhấp đúp nhãn này để đưa nó về vị trí tự động</sys:String>
+    <sys:String x:Key="S.Realtime.CompareHideBlock">Tắt so sánh cho khối này</sys:String>
+    <sys:String x:Key="S.Realtime.CompareShowBlock">Hiện so sánh cho khối này</sys:String>
+    <sys:String x:Key="S.Realtime.CompareCopyCenter">Bản dịch sẽ hiện ở đây</sys:String>
+    <sys:String x:Key="S.Realtime.CrosshairOffHint">Đã tạm ngưng khoanh khối — chuột thuộc về ứng dụng bên dưới</sys:String>
+
+    <!-- Control bar and edit window messages -->
+    <sys:String x:Key="S.Realtime.MovedToFront">Đã đưa các cửa sổ thời gian thực lên trước</sys:String>
+    <sys:String x:Key="S.Realtime.TooManyBlocks">Tối đa {0} khối — hãy xóa một khối trước</sys:String>
+    <sys:String x:Key="S.Realtime.NeedOneBlock">Hãy kéo chuột để tạo ít nhất một khối trước</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureSourceLost">Cửa sổ đang được dịch đã đóng — dịch thời gian thực đã dừng</sys:String>
+    <sys:String x:Key="S.Realtime.ScreenCaptureUnavailable">Hệ thống này không đọc được toàn màn hình để dịch thời gian thực. Hãy chuyển sang Một cửa sổ và chọn cửa sổ bạn muốn dịch</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureSourceScreen">Toàn màn hình</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureSourceWindow">Một cửa sổ</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureSourceScreenHint">Mọi thứ hiển thị trên màn hình.</sys:String>
+    <sys:String x:Key="S.Realtime.ScreenModeUnsupported">Hệ thống này hiện không hỗ trợ chụp toàn màn hình.</sys:String>
+    <sys:String x:Key="S.Realtime.RealtimeUnsupported">Dịch thời gian thực cần khả năng chụp màn hình mà bản Windows này không có</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureSourceWindowHint">Một cửa sổ, kể cả khi đang bị cửa sổ khác che.</sys:String>
+    <sys:String x:Key="S.Realtime.Step1Label">Bước 1</sys:String>
+    <sys:String x:Key="S.Realtime.Step1Name">Chọn nguồn chụp</sys:String>
+    <sys:String x:Key="S.Realtime.Step1Desc">Chọn loại vùng cần đọc.</sys:String>
+    <sys:String x:Key="S.Realtime.Step2Label">Bước 2</sys:String>
+    <sys:String x:Key="S.Realtime.Step2Name">Chọn màn hình hoặc cửa sổ</sys:String>
+    <sys:String x:Key="S.Realtime.Step2Desc">Chỉ rõ màn hình hoặc cửa sổ cần đọc, theo lựa chọn ở trên.</sys:String>
+    <sys:String x:Key="S.Realtime.Step3Label">Bước 3</sys:String>
+    <sys:String x:Key="S.Realtime.Step3Name">Thiết lập các khối</sys:String>
+    <sys:String x:Key="S.Realtime.Step3Desc">Số vùng trong hình ảnh sẽ được dịch.</sys:String>
+    <sys:String x:Key="S.Realtime.ScreenPrompt">Chọn màn hình cần đọc.</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowPromptLine">Chọn cửa sổ cần đọc.</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowPrompt">Chọn một cửa sổ</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowHint">Danh sách cửa sổ chỉ cập nhật khi bạn bấm Làm mới. Nếu vừa mở một ứng dụng khác, hãy làm mới trước khi chọn.</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowNone">Không có cửa sổ nào chụp được. Hãy mở ứng dụng trước rồi làm mới.</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowDetail">từ {0}</sys:String>
+    <sys:String x:Key="S.Realtime.CaptureWindowOnScreen">Các khối sẽ được khoanh trên {0}.</sys:String>
+    <sys:String x:Key="S.Realtime.RefreshWindows">Làm mới</sys:String>
+    <sys:String x:Key="S.Realtime.ChooseWindowFirst">Hãy chọn cửa sổ cần dịch trước</sys:String>
+    <sys:String x:Key="S.Realtime.WindowCaptureUnsupported">Phiên bản Windows này không hỗ trợ chụp màn hình.</sys:String>
+    <sys:String x:Key="S.Realtime.WindowCaptureGone">Cửa sổ đó đã đóng hoặc bị thu nhỏ. Hãy chọn lại một cửa sổ.</sys:String>
+    <sys:String x:Key="S.Realtime.WindowCaptureFailed">Không chụp được cửa sổ đó. Hãy chuyển nó sang chế độ cửa sổ không viền hoặc cửa sổ rồi thử lại.</sys:String>
+    <sys:String x:Key="S.Realtime.WindowCaptureFullscreen">Không chụp được chế độ hiển thị đó. Hãy chuyển sang cửa sổ không viền hoặc cửa sổ rồi thử lại.</sys:String>
+    <sys:String x:Key="S.Realtime.WindowCaptureNoFrame">Không lấy được hình ảnh nào từ cửa sổ đó. Hãy chuyển nó sang cửa sổ không viền hoặc cửa sổ rồi thử lại.</sys:String>
+    <sys:String x:Key="S.Realtime.SessionEndedTitle">Dịch thời gian thực đã kết thúc</sys:String>
+    <sys:String x:Key="S.Realtime.RemoveBlock">Xóa khối này</sys:String>
+
+    <!-- Block mode picker -->
+    <sys:String x:Key="S.Realtime.ModeSubtitle">Phụ đề / Truyện tranh</sys:String>
+    <sys:String x:Key="S.Realtime.ModeGameUi">Game / Giao diện</sys:String>
+    <sys:String x:Key="S.Realtime.ModeSubtitleSummary">Một đoạn văn, được đoạn sau thay thế — phụ đề, hội thoại cốt truyện, truyện tranh</sys:String>
+    <sys:String x:Key="S.Realtime.ModeGameUiSummary">Nhiều chuỗi ngắn rời rạc quanh màn hình — HUD, menu, tên vật phẩm, khung chat</sys:String>
+    <sys:String x:Key="S.Realtime.ModeSubtitleGuidance">Dành cho phụ đề video, hội thoại cốt truyện trong game và chữ trong truyện tranh — loại văn bản được đọc liền mạch.</sys:String>
+    <sys:String x:Key="S.Realtime.ModeGameUiGuidance">Dành cho màn hình game, cửa sổ chat, menu và chữ trên giao diện — mọi thứ không phải phụ đề, hội thoại hay truyện tranh.</sys:String>
+    <sys:String x:Key="S.Realtime.CollapseGuidance">Ẩn chi tiết chế độ</sys:String>
+    <sys:String x:Key="S.Realtime.ExpandGuidance">Hiện chi tiết chế độ</sys:String>
+
+    <!-- Session failures -->
+    <sys:String x:Key="S.Realtime.SessionAborted">Dịch thời gian thực đã dừng: {0}</sys:String>
+    <sys:String x:Key="S.Realtime.MissingApiKey">Chưa có khóa API. Hãy nhập trong Cài đặt trước.</sys:String>
+    <sys:String x:Key="S.Realtime.RetryingAfterFailure">Tạm thời dịch không thành công, vẫn đang thử lại: {0}</sys:String>
+
+    <!-- ── Translation providers ── -->
+    <sys:String x:Key="S.Provider.Google">Google Dịch (Tiêu chuẩn)</sys:String>
+    <sys:String x:Key="S.Provider.GoogleChrome">Google Dịch (Beta)</sys:String>
+    <sys:String x:Key="S.Provider.GoogleChromeHint">Tự nhiên hơn, nhưng tên riêng có thể bị diễn đạt lại hoặc bỏ sót</sys:String>
+    <sys:String x:Key="S.Provider.Bing">Bing Translator</sys:String>
+    <sys:String x:Key="S.Provider.Microsoft">Microsoft Translator</sys:String>
+    <sys:String x:Key="S.Provider.Youdao">Youdao Translate</sys:String>
+    <sys:String x:Key="S.Provider.TranSmart">Tencent Translate</sys:String>
+    <sys:String x:Key="S.Provider.DeepL">DeepL</sys:String>
+    <sys:String x:Key="S.Provider.DeepLHint">Cần khóa API của DeepL</sys:String>
+    <sys:String x:Key="S.Provider.OpenAI">OpenAI</sys:String>
+    <sys:String x:Key="S.Provider.OpenAIHint">Mọi API tương thích OpenAI. Khuyến nghị dùng LLM chạy cục bộ — Ollama là cách thiết lập nhanh nhất.</sys:String>
+
+    <!-- ── Settings page ── -->
+    <sys:String x:Key="S.Settings.Title">Cài đặt</sys:String>
+    <sys:String x:Key="S.Settings.Subtitle">Phím tắt, dịch vụ dịch, hiển thị và các tùy chọn nâng cao</sys:String>
+
+    <sys:String x:Key="S.Settings.Hotkeys">Phím tắt</sys:String>
+    <!-- The checkbox carries no text, so this is its ToolTip rather than a label -->
+    <sys:String x:Key="S.Settings.HotkeyEnable">Bật phím tắt này</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyDisable">Tắt phím tắt này</sys:String>
+    <!-- The shortcut box has no label of its own; this is its ToolTip -->
+    <sys:String x:Key="S.Settings.HotkeyRecordTip">Bấm để ghi một phím tắt mới</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyKinds">Phím tắt có thể kết hợp Ctrl / Alt / Shift với một phím khác, và cũng hỗ trợ một phím chức năng đơn, một nút chuột hoặc một nút tay cầm.</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyKindsExample">Ví dụ: Ctrl+Alt+A, Shift+A, F1, nút giữa / nút bên của chuột, XInput... v.v.</sys:String>
+    <sys:String x:Key="S.Settings.RealtimePauseHotkey">Tạm dừng / tiếp tục</sys:String>
+    <sys:String x:Key="S.Settings.RealtimePauseHotkeyHint">Tạm dừng hoặc tiếp tục [[dịch thời gian thực]]</sys:String>
+    <sys:String x:Key="S.Settings.RealtimePauseHotkeyNote">"Tạm dừng / tiếp tục" chỉ có tác dụng khi dịch thời gian thực đang chạy. (một cách để đọc chữ gốc)</sys:String>
+    <sys:String x:Key="S.Settings.QuickLookupHotkey">Tra nhanh</sys:String>
+    <sys:String x:Key="S.Settings.QuickLookupHotkeyHint">Bấm phím tắt để mở [[tra nhanh]]</sys:String>
+    <sys:String x:Key="S.Settings.QuickLookupHotkeyNote">Nếu đang có văn bản được chọn, nó sẽ được mang vào và dịch ngay khi cửa sổ mở.</sys:String>
+    <sys:String x:Key="S.Settings.QuickTranslateHotkey">Dịch tại chỗ</sys:String>
+    <sys:String x:Key="S.Settings.QuickTranslateHotkeyHint">Dịch [[văn bản đang chọn]] rồi dán lên chính nó</sys:String>
+    <sys:String x:Key="S.Settings.QuickTranslateHotkeyNote" xml:space="preserve">Chỉ dùng được trong những ô nhập được chữ; ngoài vùng nhập liệu thì không dán được gì.</sys:String>
+    <sys:String x:Key="S.Settings.QuickTranslateSettings">Cài đặt dịch</sys:String>
+    <sys:String x:Key="S.Settings.QuickTranslateLanguageNote">Những ngôn ngữ này chỉ áp dụng cho dịch tại chỗ, không ảnh hưởng tới dịch ảnh chụp, dịch văn bản hay dịch thời gian thực.</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyNeedsModifier">✗ Phím đơn chỉ có thể là F1–F24, Pause hoặc Scroll Lock — các phím khác cần kèm Ctrl/Alt/Shift</sys:String>
+
+    <sys:String x:Key="S.Settings.General">Chung</sys:String>
+    <sys:String x:Key="S.Settings.CaptureHotkey">Chụp</sys:String>
+    <sys:String x:Key="S.Settings.CaptureHotkeyHint">Bấm phím tắt này để bắt đầu [[dịch bằng chụp màn hình]]</sys:String>
+    <sys:String x:Key="S.Settings.WindowHotkey">Mở cửa sổ</sys:String>
+    <sys:String x:Key="S.Settings.WindowHotkeyHint">Bấm phím tắt này để mở [[cửa sổ dịch]]</sys:String>
+    <sys:String x:Key="S.Settings.AutoTranslate">Tự động</sys:String>
+    <sys:String x:Key="S.Settings.AutoTranslateCheck">Dịch ngay khi chọn xong vùng chụp màn hình, không cần bấm thêm gì.</sys:String>
+    <sys:String x:Key="S.Settings.Startup">Khởi động</sys:String>
+    <sys:String x:Key="S.Settings.StartupCheck">Chạy cùng Windows</sys:String>
+
+    <sys:String x:Key="S.Settings.ServiceSetup">Thiết lập dịch vụ</sys:String>
+    <sys:String x:Key="S.Settings.ProviderMenuHint">Tắt một dịch vụ chỉ ẩn nó khỏi menu. Việc này không đổi dịch vụ bạn đang dùng, và dịch vụ đó vẫn có thể được dùng làm dự phòng hoặc để tra từ điển.</sys:String>
+    <sys:String x:Key="S.Settings.ProviderMenuKeepOne">Hãy giữ lại ít nhất một dịch vụ</sys:String>
+    <sys:String x:Key="S.Settings.ProviderGroupFree">Dịch vụ thông dụng</sys:String>
+    <sys:String x:Key="S.Settings.ProviderGroupKeyed">Dịch vụ tùy chỉnh được</sys:String>
+    <sys:String x:Key="S.Settings.ServiceNeedsSetup">Cần thiết lập</sys:String>
+    <sys:String x:Key="S.Settings.ServiceReady">Đã thiết lập</sys:String>
+    <sys:String x:Key="S.Settings.ServiceDefault">Đang dùng mặc định</sys:String>
+    <sys:String x:Key="S.Settings.ServiceDialogTitle">Cài đặt {0}</sys:String>
+    <sys:String x:Key="S.Settings.ApiBaseUrl">Địa chỉ API</sys:String>
+    <sys:String x:Key="S.Settings.OpenAiTimeout">Thời gian chờ</sys:String>
+    <sys:String x:Key="S.Settings.OpenAiTimeoutUnit">giây</sys:String>
+    <sys:String x:Key="S.Settings.OpenAiTimeoutMin">Ít nhất {0} giây</sys:String>
+    <sys:String x:Key="S.Settings.ModelName">Mô hình</sys:String>
+    <sys:String x:Key="S.Settings.CopyModelName">Sao chép tên mô hình</sys:String>
+    <sys:String x:Key="S.Settings.ModelRequired">Bắt buộc</sys:String>
+    <sys:String x:Key="S.Settings.OllamaGuide">Hướng dẫn thiết lập LLM cục bộ (Ollama)</sys:String>
+    <sys:String x:Key="S.Settings.PromptAuto">Nguồn: tự động</sys:String>
+    <sys:String x:Key="S.Settings.PromptExplicit">Nguồn: đã chọn</sys:String>
+    <sys:String x:Key="S.Settings.PromptAutoHint">Prompt này chỉ áp dụng khi ngôn ngữ nguồn đang đặt là Tự động.</sys:String>
+    <sys:String x:Key="S.Settings.PromptExplicitHint">Prompt này chỉ áp dụng khi đã chọn một ngôn ngữ nguồn cụ thể, chẳng hạn tiếng Anh.</sys:String>
+    <sys:String x:Key="S.Settings.ModelProfiles">Cấu hình mô hình</sys:String>
+    <sys:String x:Key="S.Settings.ProfileInUse">Cấu hình đang dùng</sys:String>
+    <sys:String x:Key="S.Settings.ProfileListTitle">Cấu hình đã lưu</sys:String>
+    <sys:String x:Key="S.Settings.ProfileAdd">Thêm cấu hình ({0}/{1})</sys:String>
+    <sys:String x:Key="S.Settings.ProfileSnapshotTitle">Cấu hình sẵn có thay đổi theo từng phiên bản</sys:String>
+    <sys:String x:Key="S.Settings.ProfileSnapshotBody">Để giữ lại cấu hình sẵn có hiện tại, hãy thêm một cấu hình của riêng bạn.</sys:String>
+    <sys:String x:Key="S.Settings.ProfileSnapshotAction">Sao cấu hình sẵn có</sys:String>
+    <sys:String x:Key="S.Settings.ProfileSnapshotName">Sẵn có v{0}</sys:String>
+    <sys:String x:Key="S.Settings.PromptAutoScope">Chỉ dùng khi ngôn ngữ nguồn đang đặt là Tự động.</sys:String>
+    <sys:String x:Key="S.Settings.PromptExplicitScope">Chỉ dùng khi đã chọn một ngôn ngữ nguồn cụ thể, chẳng hạn tiếng Anh.</sys:String>
+    <sys:String x:Key="S.Settings.PromptDeleteTitle">Xóa prompt</sys:String>
+    <sys:String x:Key="S.Settings.PromptDeleteConfirm">Xóa "{0}"? Không thể hoàn tác.</sys:String>
+    <sys:String x:Key="S.Settings.PromptDefaultName">Sẵn có</sys:String>
+    <sys:String x:Key="S.Settings.PromptReadOnly">Chỉ đọc</sys:String>
+    <sys:String x:Key="S.Settings.PromptAddTitle">Cấu hình mới</sys:String>
+    <sys:String x:Key="S.Settings.PromptEditTitle">Sửa cấu hình</sys:String>
+    <sys:String x:Key="S.Settings.PromptDelete">Xóa</sys:String>
+    <sys:String x:Key="S.Settings.PromptName">Tên</sys:String>
+    <sys:String x:Key="S.Settings.PromptNamePlaceholder">Đặt tên cho prompt này</sys:String>
+    <sys:String x:Key="S.Settings.PromptContent">Nội dung prompt</sys:String>
+    <sys:String x:Key="S.Settings.PromptRoleEmpty">Chưa đặt</sys:String>
+    <sys:String x:Key="S.Settings.PromptSourceLanguage">Ngôn ngữ nguồn</sys:String>
+    <sys:String x:Key="S.Settings.PromptSourceAuto">Tự động</sys:String>
+    <sys:String x:Key="S.Settings.PromptSourceExplicit">Đã chọn</sys:String>
+    <sys:String x:Key="S.Settings.PromptSystemPlaceholder">System Prompt…</sys:String>
+    <sys:String x:Key="S.Settings.PromptUserPlaceholder">User Prompt…</sys:String>
+    <sys:String x:Key="S.Settings.PromptNeedOne">Hãy điền System Prompt hoặc User Prompt</sys:String>
+    <sys:String x:Key="S.Settings.PromptOtherEmpty">Prompt "{0}" đang để trống</sys:String>
+    <sys:String x:Key="S.Settings.PromptSystemTip">Hãy đặt System Prompt theo định dạng mà mô hình bạn chọn khuyến nghị, hoặc để trống nếu không cần.</sys:String>
+    <sys:String x:Key="S.Settings.PromptUserTip">Hãy đặt User Prompt theo định dạng mà mô hình bạn chọn khuyến nghị, hoặc để trống nếu không cần.</sys:String>
+    <sys:String x:Key="S.Settings.PromptNewName">Prompt của tôi {0}</sys:String>
+    <sys:String x:Key="S.Settings.PromptLoadDefault">Tải prompt sẵn có</sys:String>
+    <sys:String x:Key="S.Settings.PromptParams">Tham số dùng được</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamsTip">Được thay bằng các ngôn ngữ thực tế đang dùng trước khi gửi yêu cầu.</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamCol1">Tham số</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamCol2">Mô tả</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamCol3">Ví dụ</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamSourceName">Tên ngôn ngữ nguồn</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamSourceCode">Mã ngôn ngữ nguồn</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamTargetName">Tên ngôn ngữ đích</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamTargetCode">Mã ngôn ngữ đích</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamSourceNameExample">Tiếng Anh</sys:String>
+    <sys:String x:Key="S.Settings.PromptParamTargetNameExample">Tiếng Nhật</sys:String>
+    <sys:String x:Key="S.Settings.OpenAiAdvanced">Nâng cao</sys:String>
+    <sys:String x:Key="S.Settings.ModelResetTip">Dùng mô hình khuyến nghị</sys:String>
+    <sys:String x:Key="S.Settings.AdvancedHint">Tham số không được bật sẽ bị loại khỏi yêu cầu. Mỗi mô hình nhận những tham số khác nhau, với khoảng giá trị và giá trị khác nhau — hãy theo tài liệu của chính mô hình đó.</sys:String>
+    <sys:String x:Key="S.Settings.ParamEnable">Bật</sys:String>
+    <sys:String x:Key="S.Settings.Temperature">Temperature</sys:String>
+    <sys:String x:Key="S.Settings.TemperatureRange">Khoảng: 0.0 ~ 2.0</sys:String>
+    <sys:String x:Key="S.Settings.TemperatureTip" xml:space="preserve">Mức độ mô hình nghiêng về cách diễn đạt dễ xảy ra nhất. Giá trị càng thấp,
+mô hình càng bám vào cách nói có xác suất cao nhất; càng cao thì những cách
+nói khác càng có cơ hội được chọn.</sys:String>
+    <sys:String x:Key="S.Settings.TopP">Top P</sys:String>
+    <sys:String x:Key="S.Settings.TopPRange">Khoảng: 0.0 ~ 1.0</sys:String>
+    <sys:String x:Key="S.Settings.TopPTip" xml:space="preserve">Số phương án mô hình được chọn giữa. Giá trị càng thấp, càng ít phương án
+có xác suất cao được giữ lại; càng cao thì càng nhiều phương án để
+lựa chọn.</sys:String>
+    <sys:String x:Key="S.Settings.Seed">Seed</sys:String>
+    <sys:String x:Key="S.Settings.SeedRange">Số nguyên</sys:String>
+    <sys:String x:Key="S.Settings.SeedTip" xml:space="preserve">Giúp tái lập lại kết quả dễ hơn. Với cùng mô hình, cùng prompt và cùng
+thiết lập, cùng một seed thường cho ra cùng kết quả.</sys:String>
+
+    <sys:String x:Key="S.Settings.SaveScreenshot">Lưu</sys:String>
+    <sys:String x:Key="S.Settings.SaveScreenshotCheck">Lưu một bản của mọi ảnh chụp</sys:String>
+    <sys:String x:Key="S.Settings.SavePath">Vị trí</sys:String>
+    <sys:String x:Key="S.Settings.SavePathTip">Bấm để chọn thư mục</sys:String>
+    <sys:String x:Key="S.Settings.OpenFolderTip">Mở thư mục</sys:String>
+    <sys:String x:Key="S.Settings.MangaModels">Mô hình chữ dọc cho truyện tranh</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDesc1">Làm riêng cho truyện tranh Nhật viết dọc: đầy đủ hơn, nhanh hơn.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDesc2">Cần 1 GB VRAM; khuyến nghị 2 GB.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDesc2Unsupported">Không có GPU DirectX 12; sẽ dùng nhận dạng tiêu chuẩn.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsFeatureVertical">Tiếng Nhật viết dọc</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsFeatureMissed">Ít bỏ sót hơn</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsFeatureFast">Nhanh hơn</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDownload">Tải về ({0} MB)</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsCancel">Hủy</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDelete">Xóa mô hình</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsRetry">Thử lại</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDeleteFailed">Không xóa được mô hình: {0}</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsNotDownloaded">Chưa tải về</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDownloading">Đang tải về</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsReady">Sẵn sàng</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsDisabled">Tắt</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsNoGpu">Không dùng được</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsFailed">Tải không thành công</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsUnsupported">Không hỗ trợ</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsProgress">{0} / {1} MB · {2}%</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsEnabled">Đã bật mô hình truyện tranh</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsSwitchedOff">Tắt (mô hình mặc định)</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsReasonLoadFailed">Không nạp được mô hình trên {0}; chữ dọc sẽ dùng nhận dạng tiêu chuẩn.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsReasonReadFailed">Việc đọc trên {0} không thành công; chữ dọc sẽ dùng nhận dạng tiêu chuẩn.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsErrorNetwork">Không kết nối được tới máy chủ tải về. Hãy kiểm tra mạng rồi thử lại.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsErrorServer">Máy chủ tải về trả về lỗi ({0}).</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsErrorChecksum">Một tệp đã tải bị thiếu hoặc bị hỏng.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsErrorDisk">Không lưu được mô hình. Hãy kiểm tra xem còn đủ dung lượng đĩa không.</sys:String>
+    <sys:String x:Key="S.Settings.MangaModelsErrorOther">Quá trình tải chưa hoàn tất. Vui lòng thử lại.</sys:String>
+
+    <sys:String x:Key="S.Settings.Appearance">Hiển thị</sys:String>
+    <sys:String x:Key="S.Settings.Theme">Giao diện</sys:String>
+    <sys:String x:Key="S.Settings.ThemeLight">Sáng</sys:String>
+    <sys:String x:Key="S.Settings.ThemeDark">Tối</sys:String>
+    <sys:String x:Key="S.Settings.UiLanguage">Ngôn ngữ giao diện</sys:String>
+
+    <sys:String x:Key="S.Settings.Advanced">Nâng cao</sys:String>
+    <sys:String x:Key="S.Settings.Logging">Ghi log</sys:String>
+    <sys:String x:Key="S.Settings.LoggingCheck">Ghi lại thông tin chi tiết</sys:String>
+    <sys:String x:Key="S.Settings.LoggingHint">Ghi lại nhiều thông tin hơn về ứng dụng; chỉ nên bật khi đang tìm nguyên nhân sự cố.</sys:String>
+    <sys:String x:Key="S.Settings.OcrLineBoxes">Khung OCR</sys:String>
+    <sys:String x:Key="S.Settings.OcrLineBoxesHint">Hiện các vùng văn bản nguồn mà OCR phát hiện được.</sys:String>
+    <sys:String x:Key="S.Settings.TextGroupBoxes">Khung nhóm văn bản</sys:String>
+    <sys:String x:Key="S.Settings.TextGroupBoxesHint">Hiện những phần văn bản nguồn được gộp cùng nhau để dịch.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsHint">Khi xuất, ứng dụng sẽ gom các tệp log, thông tin hệ thống và cài đặt hiện tại của bạn vào một tệp chẩn đoán để bạn gửi kèm báo lỗi. Thông tin nhạy cảm như khóa API không được đưa vào, và không có dữ liệu nào được tự động tải lên.</sys:String>
+    <sys:String x:Key="S.Settings.ExportDiagnostics">Xuất chẩn đoán</sys:String>
+    <sys:String x:Key="S.Settings.OpenDiagnosticsFolder">Mở thư mục</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsUploadHint" xml:space="preserve">Tệp chẩn đoán gồm các tệp log, thông tin hệ thống và cài đặt hiện tại của bạn, với dữ liệu nhạy cảm đã được thay thế.&#x0a;Tệp chẩn đoán được giữ trên máy bạn và tự động xóa sau 30 ngày.</sys:String>
+    <sys:String x:Key="S.Settings.UploadBundle">Tải lên</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsCodeLabel">Mã báo lỗi</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsExportedTitle">Đã xuất, chưa tải lên</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsExportedHint">Tệp đã được lưu trên máy bạn và chưa tải lên. Tải lên sẽ gửi tệp chẩn đoán cho nhà phát triển kèm phần mô tả sự cố của bạn; Mở tệp cho bạn xem bên trong có gì.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsNoEndpointHint">Tệp đang ở trên máy bạn và chưa có gì được gửi đi. Hãy báo lỗi qua GitHub hoặc diễn đàn và gửi kèm tệp này. Mở tệp để xem bên trong có gì.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsUploadFailedTitle">Đã xuất tệp chẩn đoán</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsUploadedHint">Tệp chẩn đoán đã được tải lên. Nếu còn gì muốn bổ sung, hãy gửi mã báo lỗi này qua GitHub hoặc diễn đàn. Mở tệp để xem lần này đã xuất những gì.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsNotUploadedHint" xml:space="preserve">Tệp chẩn đoán đã xuất nhưng không tải lên được. Vui lòng báo lỗi qua GitHub hoặc diễn đàn và gửi kèm tệp này. Mở tệp để lấy những gì đã xuất lần này.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsRetention">Các tệp sẽ tự động xóa sau 30 ngày</sys:String>
+    <sys:String x:Key="S.Settings.CopyCode">Sao chép</sys:String>
+    <sys:String x:Key="S.Settings.OpenBundle">Mở tệp</sys:String>
+
+    <sys:String x:Key="S.Settings.AutoSaveHint">Thay đổi được lưu tự động</sys:String>
+
+    <!-- Settings page, composed in code-behind -->
+    <sys:String x:Key="S.Settings.Saved">✓ Đã lưu</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyPromptAnyInput">Hãy bấm một phím trên bàn phím, nút giữa / nút bên của chuột, hoặc một nút tay cầm…</sys:String>
+    <sys:String x:Key="S.Settings.MouseMiddle">Chuột giữa</sys:String>
+    <sys:String x:Key="S.Settings.MouseX1">Chuột bên 1</sys:String>
+    <sys:String x:Key="S.Settings.MouseX2">Chuột bên 2</sys:String>
+    <sys:String x:Key="S.Settings.GamepadButton">Tay cầm {0}</sys:String>
+    <sys:String x:Key="S.Settings.FolderPickerTitle">Chọn nơi lưu ảnh chụp</sys:String>
+    <sys:String x:Key="S.Settings.LoggingEnvOverride">Mức log hiện đang do biến môi trường OVERTRANSLATE_LOGLEVEL quyết định, nên tùy chọn này không có tác dụng.</sys:String>
+    <sys:String x:Key="S.Settings.StartupFailed">✗ Không đổi được thiết lập khởi động: {0}</sys:String>
+    <sys:String x:Key="S.Settings.OpenFolderFailed">✗ Không mở được thư mục: {0}</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsExported">✓ Đã xuất tệp chẩn đoán</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsFailed">✗ Không xuất được tệp chẩn đoán: {0}</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsExporting">Đang thu thập dữ liệu chẩn đoán…</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsUploaded">✓ Đã tải lên — mã {0}</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsCodeCopied">✓ Đã sao chép mã</sys:String>
+    <sys:String x:Key="S.Settings.CopyFailed">✗ Không sao chép được — hãy đọc mã ở ô phía trên.</sys:String>
+    <sys:String x:Key="S.Settings.DiagnosticsUploadFailed">⚠ Tệp chẩn đoán đã xuất nhưng không tải lên được</sys:String>
+
+    <!-- ── Diagnostics note ── -->
+    <sys:String x:Key="S.Settings.NoteTitle">Báo lỗi</sys:String>
+    <sys:String x:Key="S.Settings.NoteIntro">Những gì bạn viết ở đây sẽ được gửi kèm tệp chẩn đoán, và chỉ dùng để tìm ra nguyên nhân sự cố.</sys:String>
+    <sys:String x:Key="S.Settings.NotePlaceholder">Hãy kể bạn đang làm gì khi sự cố xảy ra, hoặc bất cứ điều gì khác có thể liên quan — điều đó giúp nhà phát triển tìm nguyên nhân nhanh hơn. Có thể để trống ô này.</sys:String>
+    <sys:String x:Key="S.Settings.NoteSending">Đang tải lên…</sys:String>
+    <sys:String x:Key="S.Settings.NoteUploadFailed">Việc tải lên không thành công. Tệp vẫn còn trên máy bạn nên bạn có thể thử lại.</sys:String>
+    <sys:String x:Key="S.Settings.NoteAttachFailed">Không ghi được lời nhắn của bạn vào tệp nên chưa gửi gì cả. Vui lòng thử lại.</sys:String>
+    <sys:String x:Key="S.Settings.NoteReportManually">Báo lỗi trên GitHub thay vì gửi ở đây</sys:String>
+    <sys:String x:Key="S.Settings.HotkeyTaken">✗ {0} đã được gán cho "{1}"</sys:String>
+
+    <!-- ── Language names ── -->
+    <!-- The language names in the pickers. The English interface shows LangItem.English
+         instead of these, so they exist here for parity and for anything that asks for a
+         name by key. -->
+    <sys:String x:Key="S.Lang.Automatic">Tự động</sys:String>
+    <sys:String x:Key="S.Lang.AutomaticOcr">Tự động (ZH/EN/JA)</sys:String>
+    <sys:String x:Key="S.Lang.Vietnamese">Tiếng Việt</sys:String>
+    <sys:String x:Key="S.Lang.English">Tiếng Anh</sys:String>
+    <sys:String x:Key="S.Lang.Japanese">Tiếng Nhật</sys:String>
+    <sys:String x:Key="S.Lang.Korean">Tiếng Hàn</sys:String>
+    <sys:String x:Key="S.Lang.TraditionalChinese">Tiếng Trung phồn thể</sys:String>
+    <sys:String x:Key="S.Lang.SimplifiedChinese">Tiếng Trung giản thể</sys:String>
+    <sys:String x:Key="S.Lang.Bulgarian">Tiếng Bulgaria</sys:String>
+    <sys:String x:Key="S.Lang.Czech">Tiếng Séc</sys:String>
+    <sys:String x:Key="S.Lang.Danish">Tiếng Đan Mạch</sys:String>
+    <sys:String x:Key="S.Lang.German">Tiếng Đức</sys:String>
+    <sys:String x:Key="S.Lang.Greek">Tiếng Hy Lạp</sys:String>
+    <sys:String x:Key="S.Lang.Spanish">Tiếng Tây Ban Nha</sys:String>
+    <sys:String x:Key="S.Lang.Estonian">Tiếng Estonia</sys:String>
+    <sys:String x:Key="S.Lang.Finnish">Tiếng Phần Lan</sys:String>
+    <sys:String x:Key="S.Lang.French">Tiếng Pháp</sys:String>
+    <sys:String x:Key="S.Lang.Hungarian">Tiếng Hungary</sys:String>
+    <sys:String x:Key="S.Lang.Indonesian">Tiếng Indonesia</sys:String>
+    <sys:String x:Key="S.Lang.Italian">Tiếng Ý</sys:String>
+    <sys:String x:Key="S.Lang.Lithuanian">Tiếng Litva</sys:String>
+    <sys:String x:Key="S.Lang.Latvian">Tiếng Latvia</sys:String>
+    <sys:String x:Key="S.Lang.Norwegian">Tiếng Na Uy</sys:String>
+    <sys:String x:Key="S.Lang.Dutch">Tiếng Hà Lan</sys:String>
+    <sys:String x:Key="S.Lang.Polish">Tiếng Ba Lan</sys:String>
+    <sys:String x:Key="S.Lang.Portuguese">Tiếng Bồ Đào Nha</sys:String>
+    <sys:String x:Key="S.Lang.Romanian">Tiếng Romania</sys:String>
+    <sys:String x:Key="S.Lang.Russian">Tiếng Nga</sys:String>
+    <sys:String x:Key="S.Lang.Slovak">Tiếng Slovakia</sys:String>
+    <sys:String x:Key="S.Lang.Slovenian">Tiếng Slovenia</sys:String>
+    <sys:String x:Key="S.Lang.Swedish">Tiếng Thụy Điển</sys:String>
+    <sys:String x:Key="S.Lang.Turkish">Tiếng Thổ Nhĩ Kỳ</sys:String>
+    <sys:String x:Key="S.Lang.Ukrainian">Tiếng Ukraina</sys:String>
+
+    <sys:String x:Key="S.Toolbar.DebugAssist">Hỗ trợ gỡ lỗi</sys:String>
+    <sys:String x:Key="S.Toolbar.ShowMore">Xem thêm</sys:String>
+    <sys:String x:Key="S.Toolbar.MoreGeneral">Chung</sys:String>
+    <sys:String x:Key="S.Toolbar.AutoTranslate">Tự động dịch</sys:String>
+    <sys:String x:Key="S.Toolbar.SaveScreenshot">Lưu ảnh chụp</sys:String>
+    <sys:String x:Key="S.Toolbar.SavePathInSettings">Đổi vị trí lưu trong Cài đặt</sys:String>
+    <sys:String x:Key="S.Toolbar.ModelHintSwitch">Hiện gợi ý mô hình</sys:String>
+    <sys:String x:Key="S.Toolbar.ModelHintSwitchTip">Một dòng dưới ngôn ngữ nguồn cho biết mô hình nào sẽ đọc văn bản.</sys:String>
+    <sys:String x:Key="S.Toolbar.MangaHintChooseJapanese">Hiện dùng mô hình mặc định; chọn tiếng Nhật để chuyển sang mô hình truyện tranh</sys:String>
+    <sys:String x:Key="S.Toolbar.MangaHintApplied">Đang dùng mô hình truyện tranh</sys:String>
+    <sys:String x:Key="S.Toolbar.MangaHintDownloading">Đang tải mô hình truyện tranh</sys:String>
+    <sys:String x:Key="S.Toolbar.MangaHintNotInstalled">Chưa cài mô hình truyện tranh; xem Cài đặt</sys:String>
+    <sys:String x:Key="S.Realtime.MangaHintApplied">Đang dùng mô hình truyện tranh (chữ ngang dùng mô hình mặc định)</sys:String>
+    <sys:String x:Key="S.Realtime.MangaHintNotInstalled">Chưa cài mô hình truyện tranh; xem Cài đặt (chữ ngang dùng mô hình mặc định, không cần tải gì)</sys:String>
+    <sys:String x:Key="S.Debug.DisplayScope">Phạm vi hiển thị</sys:String>
+    <sys:String x:Key="S.Debug.BoxDisplayScope">Phạm vi hiện khung</sys:String>
+    <sys:String x:Key="S.Debug.SourceOnly">Chỉ bản gốc</sys:String>
+    <sys:String x:Key="S.Debug.SourceAndTranslation">Bản gốc và bản dịch</sys:String>
+    <!-- Two lines, one per half of the switch. xml:space is what keeps the break: without it XAML
+         collapses the &#x0A; away and the two sentences run together. -->
+    <sys:String x:Key="S.Debug.ScopeHint" xml:space="preserve">Chỉ bản gốc: khung chỉ được vẽ trên khung xem bản gốc.&#x0A;Bản gốc và bản dịch: khung được vẽ trên cả khung xem bản gốc và khung xem bản dịch</sys:String>
+</ResourceDictionary>

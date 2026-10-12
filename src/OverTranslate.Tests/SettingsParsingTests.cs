@@ -34,12 +34,19 @@ public class SettingsParsingTests
         Assert.Equal(TranslationProvider.TranSmart, settings.Realtime.Provider);
     }
 
+    /// <remarks>
+    /// Both defaults are the shared one now that the interface is Vietnamese, so this no longer
+    /// shows that the two are independent of each other — two equal values cannot. That independence
+    /// is what <see cref="QuickTranslateLanguages_MigrateSharedPairThenRemainIndependent"/> and
+    /// <see cref="QuickTranslateGroup_WinsOverFlatKeysAndSerializesOnlyTheGroup"/> assert, and they
+    /// do it with explicit values rather than with whatever the defaults happen to be.
+    /// </remarks>
     [Fact]
-    public void QuickTranslateDefaultsToEnglishWithoutChangingOtherDefaults()
+    public void QuickTranslateDefaultsToTheSameTargetAsEverythingElse()
     {
-        Assert.Equal("EN-US", new QuickTranslateSettings().TargetLanguage);
+        Assert.Equal(LanguageData.DefaultTargetLanguage, new QuickTranslateSettings().TargetLanguage);
         var settings = SettingsService.Parse("{}");
-        Assert.Equal("EN-US", settings.QuickTranslate.TargetLanguage);
+        Assert.Equal(LanguageData.DefaultTargetLanguage, settings.QuickTranslate.TargetLanguage);
         Assert.Equal(LanguageData.DefaultTargetLanguage, settings.TargetLanguage);
     }
 
@@ -79,7 +86,10 @@ public class SettingsParsingTests
             """{"SourceLanguage":"JA","TargetLanguage":"EN-US","QuickTranslate":""" + group + "}");
 
         Assert.Equal(LanguageData.DefaultSourceLanguage, settings.QuickTranslate.SourceLanguage);
-        Assert.Equal("EN-US", settings.QuickTranslate.TargetLanguage);
+        // The flat TargetLanguage above is deliberately not the default: an unusable group has to
+        // fall back to QuickTranslateSettings' own default and not inherit the flat key beside it.
+        // While the default was EN-US this assertion could not tell those two apart.
+        Assert.Equal(LanguageData.DefaultTargetLanguage, settings.QuickTranslate.TargetLanguage);
     }
 
     [Fact]
@@ -114,7 +124,7 @@ public class SettingsParsingTests
             """{"QuickTranslateSourceLanguage":null,"QuickTranslateTargetLanguage":42}""");
 
         Assert.Equal(LanguageData.DefaultSourceLanguage, invalid.QuickTranslate.SourceLanguage);
-        Assert.Equal("EN-US", invalid.QuickTranslate.TargetLanguage);
+        Assert.Equal(LanguageData.DefaultTargetLanguage, invalid.QuickTranslate.TargetLanguage);
     }
 
     [Fact]
@@ -453,7 +463,7 @@ public class SettingsParsingTests
         Assert.Equal("JA", settings.SourceLanguage);
         Assert.Equal("secret", settings.ApiKey);
 
-        Assert.Equal("ZH-HANT", settings.TargetLanguage);
+        Assert.Equal(LanguageData.DefaultTargetLanguage, settings.TargetLanguage);
         Assert.Equal("Ctrl+Alt+A", settings.HotkeyDisplay);
         Assert.False(settings.AutoTranslateAfterSelection);
     }

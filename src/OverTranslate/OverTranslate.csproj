@@ -31,6 +31,12 @@
     <StartupObject>OverTranslate.App</StartupObject>
     <Version>2.7.2</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!-- For the release this is a no-op: publish-velopack.ps1 passes SelfContained=true, so the
+         package carries its own runtime and there is nothing to roll forward to. It is here for the
+         Debug build, which is framework-dependent — without it, F5 on a machine that has a newer
+         runtime but not 8 fails to start the app for a reason that has nothing to do with the code.
+         See OverTranslate.Tests.csproj for why Major rather than LatestMajor. -->
+    <RollForward>Major</RollForward>
     <!-- WFAC010 tells WinForms apps to declare DPI awareness through Application.SetHighDpiMode.
          This is a WPF app that only references WinForms types; ApplicationConfiguration.Initialize
          is never called, so the manifest is the only mechanism that takes effect. -->
@@ -43,7 +49,9 @@
     <Microsoft_AI_DirectML_SkipDebugLayerCopy>true</Microsoft_AI_DirectML_SkipDebugLayerCopy>
     <!-- The self-contained runtime brings WPF/WinForms resource satellites for 13 cultures (built-in dialog text,
          exception messages). Keep the ones matching the UI languages the app ships (Resources\Strings.*.xaml);
-         anyone else gets the neutral English built into the framework assemblies. About 4 MB compressed. -->
+         anyone else gets the neutral English built into the framework assemblies. About 4 MB compressed.
+         Vietnamese is deliberately absent: the runtime publishes no vi satellite, so listing it here would
+         do nothing, and a vi interface gets the same neutral English dialog text as any unlisted culture. -->
     <SatelliteResourceLanguages>en;ja;ko;zh-Hans;zh-Hant</SatelliteResourceLanguages>
   </PropertyGroup>
 

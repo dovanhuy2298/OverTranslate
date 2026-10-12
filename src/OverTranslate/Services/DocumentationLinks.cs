@@ -23,6 +23,9 @@ public static class DocumentationLinks
         [LocalizationService.English]            = "docs/guides/OLLAMA_GUIDE.en.md",
         [LocalizationService.Japanese]           = "docs/guides/OLLAMA_GUIDE.ja.md",
         [LocalizationService.Korean]             = "docs/guides/OLLAMA_GUIDE.ko.md",
+        // No Vietnamese guide is written yet. Named explicitly rather than left to the fallback
+        // below, which would send a Vietnamese reader to the Traditional Chinese one.
+        [LocalizationService.Vietnamese]         = "docs/guides/OLLAMA_GUIDE.en.md",
     };
 
     /// <summary>The Ollama guide in the language the interface is currently in.</summary>

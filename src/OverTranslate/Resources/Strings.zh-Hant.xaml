@@ -651,6 +651,7 @@
     <!-- 語言選單裡的語言名稱。英文名由 LangItem.English 另外帶著，所以這裡只寫介面語言自己的說法。 -->
     <sys:String x:Key="S.Lang.Automatic">自動</sys:String>
     <sys:String x:Key="S.Lang.AutomaticOcr">自動（中英日）</sys:String>
+    <sys:String x:Key="S.Lang.Vietnamese">越南文</sys:String>
     <sys:String x:Key="S.Lang.English">英文</sys:String>
     <sys:String x:Key="S.Lang.Japanese">日文</sys:String>
     <sys:String x:Key="S.Lang.Korean">韓文</sys:String>

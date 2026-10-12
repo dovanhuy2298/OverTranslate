@@ -142,7 +142,7 @@ public class AppSettings
     public bool QuickTranslateHotkeyEnabled { get; set; } = true;
 
     public string SourceLanguage { get; set; } = LanguageData.DefaultOcrSourceLanguage;
-    public string TargetLanguage { get; set; } = "ZH-HANT";
+    public string TargetLanguage { get; set; } = LanguageData.DefaultTargetLanguage;
     public TranslationProvider Provider { get; set; } = TranslationProvider.Microsoft;
 
     /// <summary>
@@ -197,7 +197,8 @@ public class AppSettings
     public string Theme { get; set; } = "Dark";
     /// <summary>
     /// The interface language — one of the codes in
-    /// <see cref="Services.LocalizationService.Options"/> ("zh-Hant", "zh-Hans", "en", "ja", "ko").
+    /// <see cref="Services.LocalizationService.Options"/> ("zh-Hant", "zh-Hans", "en", "ja", "ko",
+    /// "vi").
     /// Empty means "not chosen yet".
     /// </summary>
     /// <remarks>

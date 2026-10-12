@@ -20,6 +20,7 @@ public class DocumentationLinkTests
     [InlineData(LocalizationService.English)]
     [InlineData(LocalizationService.Japanese)]
     [InlineData(LocalizationService.Korean)]
+    [InlineData(LocalizationService.Vietnamese)]
     public void EveryLanguagesOllamaGuideExists(string language)
     {
         var path = Path.Combine(RepositoryRoot(), DocumentationLinks.OllamaGuidePath(language));

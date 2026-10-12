@@ -65,21 +65,50 @@ public class LanguageDataTests
     /// reorders them between screens makes the user read a list they already know.
     /// </summary>
     /// <remarks>
-    /// 繁體中文 leads the Chinese pair on purpose. It is the interface's own language and the default
-    /// target; the list opens on what most of its users are looking for.
+    /// Vietnamese leads for the reason 繁體中文 used to: it is the interface's own language and the
+    /// default target, so the list opens on what most of its users are looking for. It is absent
+    /// from the OCR list and that is not an oversight — the recognition models read AUTO, EN, ZH,
+    /// ZH-HANT, JA and KO, so offering Vietnamese there would promise something no engine behind it
+    /// can do. 繁體中文 still leads the Chinese pair wherever the pair appears.
     /// </remarks>
     [Fact]
     public void PrimaryLanguages_UseConsistentOrder()
     {
         Assert.Equal(
-            ["AUTO", "EN", "JA", "KO", "ZH-HANT", "ZH"],
-            LanguageData.SourceLanguages.Take(6).Select(language => language.Code));
+            ["AUTO", "VI", "EN", "JA", "KO", "ZH-HANT", "ZH"],
+            LanguageData.SourceLanguages.Take(7).Select(language => language.Code));
         Assert.Equal(
             ["AUTO", "EN", "JA", "KO", "ZH-HANT", "ZH"],
             LanguageData.OcrSourceLanguages.Take(6).Select(language => language.Code));
         Assert.Equal(
-            ["EN-US", "JA", "KO", "ZH-HANT", "ZH-HANS"],
-            LanguageData.TargetLanguages.Take(5).Select(language => language.Code));
+            ["VI", "EN-US", "JA", "KO", "ZH-HANT", "ZH-HANS"],
+            LanguageData.TargetLanguages.Take(6).Select(language => language.Code));
+    }
+
+    /// <summary>
+    /// Every default target the application ships is a code its target picker actually holds.
+    /// </summary>
+    /// <remarks>
+    /// Four features keep their own default and they were four separate literals before Vietnamese
+    /// arrived, which is how three of them could have been moved and the fourth left behind. A
+    /// default outside the list is not a crash: GetValidTargetCode quietly substitutes
+    /// DefaultTargetLanguage, so the feature works and simply ignores the default it was given.
+    /// </remarks>
+    [Fact]
+    public void EveryDefaultTargetLanguage_IsOfferedInThePicker()
+    {
+        string[] defaults =
+        [
+            LanguageData.DefaultTargetLanguage,
+            new AppSettings().TargetLanguage,
+            new QuickTranslateSettings().TargetLanguage,
+            new RealtimeSettings().TargetLanguage,
+            QuickLookupSettings.DefaultFirstLanguage,
+            QuickLookupSettings.DefaultSecondLanguage,
+        ];
+
+        foreach (var code in defaults)
+            Assert.Contains(LanguageData.TargetLanguages, language => language.Code == code);
     }
 
     [Fact]

@@ -38,6 +38,7 @@ public static class LocalizationService
     public const string English            = "en";
     public const string Japanese           = "ja";
     public const string Korean             = "ko";
+    public const string Vietnamese         = "vi";
 
     /// <summary>The dictionary each language is served by, and the set of languages that exist.</summary>
     /// <remarks>
@@ -53,6 +54,7 @@ public static class LocalizationService
         [English]            = new("Resources/Strings.en.xaml",      UriKind.Relative),
         [Japanese]           = new("Resources/Strings.ja.xaml",      UriKind.Relative),
         [Korean]             = new("Resources/Strings.ko.xaml",      UriKind.Relative),
+        [Vietnamese]         = new("Resources/Strings.vi.xaml",      UriKind.Relative),
     };
 
     /// <summary>The languages offered in settings, in the order they are listed.</summary>
@@ -67,6 +69,7 @@ public static class LocalizationService
         new(English,            "English"),
         new(Japanese,           "日本語"),
         new(Korean,             "한국어"),
+        new(Vietnamese,         "Tiếng Việt"),
     ];
 
     /// <summary>Whether <paramref name="language"/> is one this app actually has strings for.</summary>
@@ -101,6 +104,11 @@ public static class LocalizationService
         [English]            = "Segoe UI Variable Text, Segoe UI, Microsoft JhengHei UI, Sans-Serif",
         [Japanese]           = "Segoe UI Variable Text, Segoe UI, Yu Gothic UI, Meiryo UI, Sans-Serif",
         [Korean]             = "Segoe UI Variable Text, Segoe UI, Malgun Gothic, Sans-Serif",
+        // Vietnamese is Latin with stacked diacritics, so there is no CJK family to choose here —
+        // Segoe UI carries the whole of Vietnamese Quốc ngữ. The Traditional Chinese family stays
+        // at the back for the same reason it does in English: what reaches it is the text being
+        // translated, not the interface.
+        [Vietnamese]         = "Segoe UI Variable Text, Segoe UI, Microsoft JhengHei UI, Sans-Serif",
     };
 
     /// <summary>
@@ -132,54 +140,24 @@ public static class LocalizationService
     }
 
     /// <summary>
-    /// The language to start a first-run profile in, from the display language Windows is set to.
+    /// The language to start a first-run profile in.
     /// </summary>
     /// <remarks>
-    /// Chinese is split by script rather than by region, because that is the thing a reader can or
-    /// cannot read: Windows reports zh-TW, zh-HK and zh-MO for the Traditional-writing regions and
-    /// zh-CN, zh-SG and plain zh for the rest, so the region list is the script list. A Chinese
-    /// tag nobody thought of lands on Simplified, which is what the unlisted ones overwhelmingly
-    /// are. Japanese and Korean match on the language alone; everything else gets English.
+    /// Always Vietnamese, and deliberately not read off the machine. This build exists to be the
+    /// Vietnamese one: a profile that started in whatever Windows happened to be set to would put
+    /// the reader it was localised for into a language they did not ask for, on a machine whose
+    /// display language is very often not their own.
     ///
-    /// CurrentUICulture, not InstalledUICulture: the latter is the language Windows was installed
-    /// in and does not move when the user changes their display language afterwards, so someone
-    /// running a Chinese-installed Windows in English would have been handed a Chinese interface
-    /// despite having said otherwise. This only decides the starting point — an explicit choice on
-    /// the settings page is stored and consulted first from then on.
+    /// This only decides the starting point. An explicit choice on the settings page is stored and
+    /// consulted before this from then on — see <see cref="Current"/> — so nothing here stops
+    /// anyone running the interface in any of the other five.
+    ///
+    /// What this gave up, should the OS ever be worth following again: Chinese had to be split by
+    /// script rather than region, because Windows reports zh-TW / zh-HK / zh-MO for the
+    /// Traditional-writing regions and zh-CN / zh-SG / plain zh for the rest. That mapping, and the
+    /// reason it read CurrentUICulture rather than InstalledUICulture, are in this file's history.
     /// </remarks>
-    public static string ResolveSystemDefault()
-    {
-        var culture = CultureInfo.CurrentUICulture;
-
-        return culture.TwoLetterISOLanguageName.ToLowerInvariant() switch
-        {
-            "zh" => IsTraditionalScript(culture) ? TraditionalChinese : SimplifiedChinese,
-            "ja" => Japanese,
-            "ko" => Korean,
-            _    => English,
-        };
-    }
-
-    /// <summary>
-    /// Whether a Chinese culture is one of the Traditional-writing ones.
-    /// </summary>
-    /// <remarks>
-    /// Read off the name rather than asked of <see cref="CultureInfo"/>, which has no "which script"
-    /// property to ask. The explicit zh-Hant tag is checked first because Windows does hand it out
-    /// for a culture set that way, and it carries no region to match on at all.
-    /// </remarks>
-    private static bool IsTraditionalScript(CultureInfo culture)
-    {
-        var name = culture.Name.Replace('_', '-');
-
-        if (name.Contains("Hant", StringComparison.OrdinalIgnoreCase)) return true;
-        if (name.Contains("Hans", StringComparison.OrdinalIgnoreCase)) return false;
-
-        var region = name.Split('-').LastOrDefault() ?? "";
-        return region.Equals("TW", StringComparison.OrdinalIgnoreCase)
-            || region.Equals("HK", StringComparison.OrdinalIgnoreCase)
-            || region.Equals("MO", StringComparison.OrdinalIgnoreCase);
-    }
+    public static string ResolveSystemDefault() => Vietnamese;
 
     public static void Apply(string language)
     {

@@ -9,6 +9,16 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <!-- The test host is framework-dependent, so running the suite needs a .NET 8 runtime on the
+         machine and not just the SDK. A developer whose machine has a newer runtime but not 8 could
+         not run the tests at all: the host exits with "You must install or update .NET" before a
+         single test is collected, which reads like a broken checkout rather than a missing runtime.
+
+         Major, not LatestMajor: this prefers the requested runtime whenever it is installed, so CI
+         — which installs 8.0.x on purpose — still runs the suite on 8, and only a machine without
+         it rolls forward. LatestMajor would have moved CI onto whatever the newest installed
+         runtime happened to be, which is a different thing to be testing than what ships. -->
+    <RollForward>Major</RollForward>
     <!-- The imaging golden cases build their inputs and read their outputs row by row through pointers. -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>

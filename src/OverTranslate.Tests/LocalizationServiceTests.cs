@@ -10,33 +10,39 @@ namespace OverTranslate.Tests;
 /// </summary>
 public class LocalizationServiceTests
 {
+    /// <summary>
+    /// A first run starts in Vietnamese whatever the machine is set to.
+    /// </summary>
     /// <remarks>
-    /// Chinese is split by script, and the script has to be read off the region because Windows
-    /// reports zh-TW and zh-CN far more often than it reports zh-Hant. Everything unlisted is
-    /// Simplified, which is what the regions nobody thought of overwhelmingly are.
+    /// The cultures are still enumerated, and that is the point: this used to follow the display
+    /// language, so the regression to guard against is someone reinstating one of these mappings
+    /// and leaving a Vietnamese build that opens in Chinese on a Chinese machine. The Chinese tags
+    /// are over-represented because they are the ones that carried the most logic — a
+    /// script-versus-region split — and so are the likeliest to come back by accident.
     /// </remarks>
     [Theory]
-    [InlineData("zh-TW", LocalizationService.TraditionalChinese)]
-    [InlineData("zh-HK", LocalizationService.TraditionalChinese)]
-    [InlineData("zh-MO", LocalizationService.TraditionalChinese)]
-    [InlineData("zh-Hant", LocalizationService.TraditionalChinese)]
-    [InlineData("zh-Hant-TW", LocalizationService.TraditionalChinese)]
-    [InlineData("zh-CN", LocalizationService.SimplifiedChinese)]
-    [InlineData("zh-SG", LocalizationService.SimplifiedChinese)]
-    [InlineData("zh-Hans", LocalizationService.SimplifiedChinese)]
-    [InlineData("zh", LocalizationService.SimplifiedChinese)]
-    [InlineData("ja-JP", LocalizationService.Japanese)]
-    [InlineData("ko-KR", LocalizationService.Korean)]
-    [InlineData("en-US", LocalizationService.English)]
-    [InlineData("de-DE", LocalizationService.English)]
-    [InlineData("", LocalizationService.English)]
-    public void ResolveSystemDefault_FollowsTheDisplayLanguage(string culture, string expected)
+    [InlineData("zh-TW")]
+    [InlineData("zh-HK")]
+    [InlineData("zh-MO")]
+    [InlineData("zh-Hant")]
+    [InlineData("zh-Hant-TW")]
+    [InlineData("zh-CN")]
+    [InlineData("zh-SG")]
+    [InlineData("zh-Hans")]
+    [InlineData("zh")]
+    [InlineData("ja-JP")]
+    [InlineData("ko-KR")]
+    [InlineData("vi-VN")]
+    [InlineData("en-US")]
+    [InlineData("de-DE")]
+    [InlineData("")]
+    public void ResolveSystemDefault_IsAlwaysVietnamese(string culture)
     {
         var original = CultureInfo.CurrentUICulture;
         try
         {
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
-            Assert.Equal(expected, LocalizationService.ResolveSystemDefault());
+            Assert.Equal(LocalizationService.Vietnamese, LocalizationService.ResolveSystemDefault());
         }
         finally
         {
@@ -50,6 +56,7 @@ public class LocalizationServiceTests
     [InlineData(LocalizationService.English)]
     [InlineData(LocalizationService.Japanese)]
     [InlineData(LocalizationService.Korean)]
+    [InlineData(LocalizationService.Vietnamese)]
     public void IsSupported_AcceptsEveryLanguageOnOffer(string language) =>
         Assert.True(LocalizationService.IsSupported(language));
 
@@ -90,7 +97,7 @@ public class LocalizationServiceTests
     public void EveryLanguageIsNamedInItself()
     {
         Assert.Equal(
-            new[] { "繁體中文", "简体中文", "English", "日本語", "한국어" },
+            new[] { "繁體中文", "简体中文", "English", "日本語", "한국어", "Tiếng Việt" },
             LocalizationService.Options.Select(o => o.Display));
     }
 }

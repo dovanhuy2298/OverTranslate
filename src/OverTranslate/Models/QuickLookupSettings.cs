@@ -27,11 +27,12 @@ public class QuickLookupSettings
 
     /// <summary>What the pair is before anyone has said otherwise.</summary>
     /// <remarks>
-    /// The interface ships in Traditional Chinese and most of what its readers point this at is
-    /// English, so this is the pair the feature was asked for — and both halves are one pick away
-    /// from being something else.
+    /// This build's interface is Vietnamese and most of what its readers point this at is English,
+    /// so this is the pair it starts on — and both halves are one pick away from being something
+    /// else. The first is the fallback, which is why it is the reader's own language rather than
+    /// the one being read.
     /// </remarks>
-    public const string DefaultFirstLanguage = "ZH-HANT";
+    public const string DefaultFirstLanguage = "VI";
 
     /// <inheritdoc cref="DefaultFirstLanguage"/>
     public const string DefaultSecondLanguage = "EN-US";

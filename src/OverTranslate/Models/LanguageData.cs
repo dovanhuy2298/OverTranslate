@@ -109,7 +109,7 @@ public static class LanguageData
     public const string AutomaticSourceLanguage = "AUTO";
     public const string DefaultSourceLanguage = AutomaticSourceLanguage;
     public const string DefaultOcrSourceLanguage = AutomaticSourceLanguage;
-    public const string DefaultTargetLanguage = "ZH-HANT";
+    public const string DefaultTargetLanguage = "VI";
 
     /// <summary>
     /// What 即時翻譯 reads from until the user says otherwise — see
@@ -120,6 +120,7 @@ public static class LanguageData
     public static readonly List<LangItem> SourceLanguages =
     [
         new(AutomaticSourceLanguage, "S.Lang.Automatic",          "Automatic"),
+        new("VI",      "S.Lang.Vietnamese",         "Vietnamese"),
         new("EN",      "S.Lang.English",            "English"),
         new("JA",      "S.Lang.Japanese",           "Japanese"),
         new("KO",      "S.Lang.Korean",             "Korean"),
@@ -193,6 +194,7 @@ public static class LanguageData
 
     public static readonly List<LangItem> TargetLanguages =
     [
+        new("VI",      "S.Lang.Vietnamese",         "Vietnamese"),
         new("EN-US",   "S.Lang.English",            "English"),
         new("JA",      "S.Lang.Japanese",           "Japanese"),
         new("KO",      "S.Lang.Korean",             "Korean"),

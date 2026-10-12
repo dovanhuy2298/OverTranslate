@@ -631,6 +631,7 @@
          for each language belongs here. -->
     <sys:String x:Key="S.Lang.Automatic">自動</sys:String>
     <sys:String x:Key="S.Lang.AutomaticOcr">自動（中・英・日）</sys:String>
+    <sys:String x:Key="S.Lang.Vietnamese">ベトナム語</sys:String>
     <sys:String x:Key="S.Lang.English">英語</sys:String>
     <sys:String x:Key="S.Lang.Japanese">日本語</sys:String>
     <sys:String x:Key="S.Lang.Korean">韓国語</sys:String>

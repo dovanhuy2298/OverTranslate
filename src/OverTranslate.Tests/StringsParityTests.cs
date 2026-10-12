@@ -70,6 +70,7 @@ public class StringsParityTests
         EnglishFile,
         "Strings.ja.xaml",
         "Strings.ko.xaml",
+        "Strings.vi.xaml",
     ];
 
     /// <summary>The dictionaries held against the authored one, which is every other one.</summary>
